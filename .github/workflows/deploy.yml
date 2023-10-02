@@ -34,7 +34,7 @@ jobs:
 
       - name: Zip dist folder 📦
         run: |
-          zip -r production-${{ github.event.release.tag_name }}.zip dist
+          zip -r production-${{ github.event.release.tag_name }}.zip dist/*
 
       - name: Upload Release Asset 📤
         uses: actions/github-script@v5
