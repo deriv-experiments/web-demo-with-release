@@ -1,6 +1,6 @@
 document.body.innerHTML = `
-  <h1>Hello</h1>
-  Hello to the world
+  <h1>Test Website</h1>
+  This is a test website
 
   <footer>
     ${process.env.VERSION}
