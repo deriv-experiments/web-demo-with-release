@@ -19,10 +19,10 @@
       "entryPoint": "src/index.tsx",
       "inputs": {
         "src/index.tsx": {
-          "bytesInOutput": 101
+          "bytesInOutput": 102
         }
       },
-      "bytes": 136
+      "bytes": 137
     }
   }
 }
