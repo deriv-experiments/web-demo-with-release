@@ -3,7 +3,7 @@ document.body.innerHTML=`
   Hello to the world
 
   <footer>
-    vv1.0.0
+    v1.0.0
   </footer>
 `;
 //# sourceMappingURL=index.js.map
