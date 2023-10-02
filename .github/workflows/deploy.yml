@@ -5,7 +5,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   build-and-deploy:
@@ -33,18 +32,20 @@ jobs:
           clean: false
           target-folder: ${{ github.event.release.tag_name }}
 
-      - name: Comment on Pull Request
+      - name: Add Preview to Description
         uses: actions/github-script@v5
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const tag = process.env.GITHUB_REF.split('/').pop();
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
+            const releaseId = context.payload.release.id;
+            const currentBody = context.payload.release.body;
+            const previewURL = 'https://deriv-experiments.github.io/web-demo-with-release/' + tag;
+            const newBody = currentBody + '\n\n👋 Preview deployed to: ' + previewURL;
+
+            github.rest.repos.updateRelease({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: [
-                '👋 Preview deployed to:',
-                'https://deriv-experiments.github.io/web-demo-with-release/' + tag
-              ].join('\n')
-            })
+              release_id: releaseId,
+              body: newBody
+            });
