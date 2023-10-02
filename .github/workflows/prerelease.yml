@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Prerelease
 on:
   release:
     types: [prereleased]
@@ -17,7 +17,7 @@ jobs:
 
       - name: Install and Build 🔧
         env:
-          VERSION: ${{ github.event.release.tag_name }}
+          VERSION: ${{ github.event.release.tag_name }}-pre
         run: |
           npm install
           npm run build
