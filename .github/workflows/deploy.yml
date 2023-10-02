@@ -37,12 +37,26 @@ jobs:
           zip -r production-${{ github.event.release.tag_name }}.zip dist
 
       - name: Upload Release Asset 📤
-        uses: actions/upload-release-asset@v1
+        uses: actions/github-script@v5
         with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./production-${{ github.event.release.tag_name }}.zip
-          asset_name: production-${{ github.event.release.tag_name }}.zip
-          asset_content_type: application/zip
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const zipPath = path.join(process.env.GITHUB_WORKSPACE, 'production-${{ github.event.release.tag_name }}.zip');
+
+            const releaseId = context.payload.release.id;
+            const asset = await github.rest.repos.uploadReleaseAsset({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              release_id: releaseId,
+              name: path.basename(zipPath),
+              data: fs.readFileSync(zipPath),
+              headers: {
+                'content-type': 'application/zip',
+                'content-length': fs.statSync(zipPath).size
+              }
+            });
 
       - name: Add Preview to Description
         uses: actions/github-script@v5
