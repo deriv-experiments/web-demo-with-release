@@ -3,7 +3,7 @@ document.body.innerHTML = `
   Hello to the world
 
   <footer>
-    v${process.env.VERSION}
+    ${process.env.VERSION}
   </footer>
 `;
 
