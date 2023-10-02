@@ -1,0 +1,17 @@
+{
+  "name": "web-demo-with-release",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.19.4",
+    "glob": "^10.3.10"
+  }
+}
