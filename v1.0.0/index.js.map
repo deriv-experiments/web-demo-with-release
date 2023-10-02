@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../src/index.tsx"],
-  "sourcesContent": ["document.body.innerHTML = 'Hello World';\n"],
-  "mappings": "AAAA,SAAS,KAAK,UAAY",
+  "sourcesContent": ["document.body.innerHTML = `\n  <h1>Hello</h1>\n  Hello to the world\n\n  <footer>\n    ${process.env.VERSION}\n  </footer>\n`;\n\n"],
+  "mappings": "AAAA,SAAS,KAAK,UAAY;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;",
   "names": []
 }
