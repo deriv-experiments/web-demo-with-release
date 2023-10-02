@@ -44,6 +44,6 @@ jobs:
               repo: context.repo.repo,
               body: [
                 '👋 Preview deployed to:',
-                'https://markwylde-deriv.github.io/web-demo-with-release/' + subfolder
+                'https://deriv-experiments.github.io/web-demo-with-release/' + subfolder
               ].join('\n')
             })
