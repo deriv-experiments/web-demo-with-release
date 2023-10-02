@@ -32,6 +32,18 @@ jobs:
           clean: false
           target-folder: ${{ github.event.release.tag_name }}
 
+      - name: Zip dist folder 📦
+        run: |
+          zip -r production-${{ github.event.release.tag_name }}.zip dist
+
+      - name: Upload Release Asset 📤
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./production-${{ github.event.release.tag_name }}.zip
+          asset_name: production-${{ github.event.release.tag_name }}.zip
+          asset_content_type: application/zip
+
       - name: Add Preview to Description
         uses: actions/github-script@v5
         with:
