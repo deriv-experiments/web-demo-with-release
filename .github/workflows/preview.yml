@@ -16,6 +16,8 @@ jobs:
           fetch-depth: 0
 
       - name: Install and Build 🔧
+        env:
+          VERSION: ${{ github.sha }}
         run: |
           npm install
           npm run build
