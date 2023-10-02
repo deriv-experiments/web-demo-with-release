@@ -29,6 +29,9 @@ export async function buildJs () {
     sourcemap: true,
     metafile: true,
     jsxFragment: 'Component',
+    define: {
+      'process.env.VERSION': '"' + (process.env.VERSION || 'unreleased') + '"'
+    },
     loader: {
       '.svg': 'file',
       '.gif': 'file',

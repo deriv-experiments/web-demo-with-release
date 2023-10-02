@@ -16,6 +16,8 @@ jobs:
           fetch-depth: 0
 
       - name: Install and Build 🔧
+        env:
+          VERSION: v${{ github.event.release.tag_name }}
         run: |
           npm install
           npm run build
