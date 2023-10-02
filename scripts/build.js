@@ -30,7 +30,7 @@ export async function buildJs () {
     metafile: true,
     jsxFragment: 'Component',
     define: {
-      'process.env.VERSION': '"' + '1.0.0' + '"'
+      'process.env.VERSION': '"' + process.env.VERSION + '"'
     },
     loader: {
       '.svg': 'file',
