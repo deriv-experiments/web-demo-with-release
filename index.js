@@ -1,9 +1,9 @@
 document.body.innerHTML=`
-  <h1>Hello</h1>
-  Hello to the world
+  <h1>Test Website</h1>
+  This is a test website
 
   <footer>
-    v1.1.0
+    v1.2.0
   </footer>
 `;
 //# sourceMappingURL=index.js.map
