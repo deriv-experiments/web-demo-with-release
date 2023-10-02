@@ -37,7 +37,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const tag = process.env.GITHUB_REF.split('/').pop();
+            const tag = '${{ github.event.release.tag_name }}';
             const releaseId = context.payload.release.id;
             const currentBody = context.payload.release.body;
             const previewURL = 'https://deriv-experiments.github.io/web-demo-with-release/' + tag;
