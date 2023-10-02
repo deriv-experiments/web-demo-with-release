@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/index.tsx"],
+  "sourcesContent": ["document.body.innerHTML = 'Hello World';\n"],
+  "mappings": "AAAA,SAAS,KAAK,UAAY",
+  "names": []
+}
